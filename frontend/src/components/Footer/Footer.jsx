@@ -15,17 +15,11 @@ const quick__links = [
     path: "/about",
     display: "About",
   },
-  {
-    path: "/tours",
-    display: "Tours",
-  },
+  
 ];
 
 const quick__links2 = [
-  {
-    path: "/gallery",
-    display: "Gallery",
-  },
+  
   {
     path: "/login",
     display: "Login",
@@ -51,7 +45,7 @@ const Footer = () => {
                 Commodi, enim.
               </p>
 
-              <div className="social__links d-flex align-items-center gap-4">
+              {/* <div className="social__links d-flex align-items-center gap-4">
                 <span>
                   <Link to="#">
                     <i class="ri-youtube-line"></i>
@@ -72,7 +66,7 @@ const Footer = () => {
                     <i class="ri-instagram-line"></i>
                   </Link>
                 </span>
-              </div>
+              </div> */}
             </div>
           </Col>
 
@@ -110,7 +104,7 @@ const Footer = () => {
                   Address:
                 </h6>
 
-                <p className="mb-0">###</p>
+                <p className="mb-0">######</p>
               </ListGroupItem>
               <ListGroupItem className="ps-0 border-0 d-flex align-items-center gap-3">
                 <h6 className="mb-0 d-flex align-items-center gap-2">
@@ -122,16 +116,7 @@ const Footer = () => {
 
                 <p className="mb-0">####@gmail.com</p>
               </ListGroupItem>
-              <ListGroupItem className="ps-0 border-0 d-flex align-items-center gap-3">
-                <h6 className="mb-0 d-flex align-items-center gap-2">
-                  <span>
-                    <i class="ri-phone-fill"></i>
-                  </span>
-                  Phone:
-                </h6>
-
-                <p className="mb-0">+0123456789</p>
-              </ListGroupItem>
+              
             </ListGroup>
           </Col>
 

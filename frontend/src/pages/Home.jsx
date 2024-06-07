@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import "../styles/home.css";
+import "../styles/gallery.css";
 
 import { Container, Row, Col } from "reactstrap";
 import heroImg from "../assets/images/hero-img01.jpg";
@@ -18,8 +19,11 @@ import SearchBar from "../shared/SearchBar";
 import FeaturedTourList from "../components/Featured-tours/FeaturedTourList";
 import Testimonials from "../components/Testimonial/Testimonials";
 import Newsletter from "../shared/Newsletter";
+import { AuthContext } from "../context/AuthContext";
 
 const Home = () => {
+  const { role, dispatch } = useContext(AuthContext);
+  console.log(role)
   return (
     <>
       {/* ========== hero section start =========== */}
@@ -74,6 +78,7 @@ const Home = () => {
             <Col lg="12" className="mb-5">
               <Subtitle subtitle={"Explore"} />
               <h2 className="featured__tour-title">Our featured tours</h2>
+              {role === "admin" && <button >ADD</button>}
             </Col>
             <FeaturedTourList />
           </Row>
@@ -136,39 +141,28 @@ const Home = () => {
               </div>
 
               <div className="counter__wrapper d-flex align-items-center gap-5 ">
-                 <Col >
-              <div className="experience__img" style={{display:"block"}}>
-              <Row md="6">
-              <div className="experience__img">
-                <img src={galleryImg} alt="" />
-              </div>
-            </Row>
-            <Row md="6">
-              <div className="experience__img">
-                <img src={galleryImg02} alt="" />
-              </div>
-            </Row>
-                <div>
-                <img src={galleryImg} alt="" />
-                </div>
-                <div>
-                <img src={galleryImg02} alt="" />
-                </div>
-                <div className="counter__box">
-                <img src={galleryImg03} alt="" />
-                </div>
-               
-               
-                <img src={galleryImg04} alt="" />
-                <img src={galleryImg05} alt="" />
-                <img src={galleryImg06} alt="" />
+                <Col >
+                  <div className="experience__img" >
+
+                    <span className="gallery1">
+                      <img src={galleryImg} alt="" />
+                      <img src={galleryImg05} alt="" />
+                      <img src={galleryImg03} alt="" />
+                    </span>
+
+                    <br></br>
+                    <span className="gallery2">
+                      <img src={galleryImg04} alt="" />
+                      <img src={galleryImg02} alt="" />
+                      <img src={galleryImg06} alt="" />
+                    </span>
+                  </div>
+                </Col>
+
+
               </div>
             </Col>
-               
-                
-              </div>
-            </Col>
-           
+
           </Row>
         </Container>
       </section>

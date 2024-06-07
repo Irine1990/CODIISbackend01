@@ -3,6 +3,7 @@ import Tour from "../models/Tour.js";
 // create new tour
 export const createTour = async (req, res) => {
     const newTour = new Tour(req.body);
+    console.log(newTour)
 
     try {
         const savedTour = await newTour.save();
@@ -87,23 +88,26 @@ export const getSingleTour = async (req, res) => {
 // getAll tour
 export const getAllTour = async (req, res) => {
     // for pagination
-    const page = parseInt(req.query.page);
+    const page = parseInt(req.query.page) || 0;
 
     try {
         const tours = await Tour.find({})
-            .populate("reviews")
+            // .populate("reviews")
             .skip(page * 8)
             .limit(8);
-
+            console.log(tours,page)
         res.status(200).json({
             success: true,
             count: tours.length,
             message: "Successful",
             data: tours,
         });
+       
     } catch (err) {
+        console.log(err)
         res.status(404).json({
             success: false,
+            error: err,
             message: "not found",
         });
     }

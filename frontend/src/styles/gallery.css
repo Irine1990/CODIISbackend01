@@ -1,0 +1,13 @@
+.gallery1{
+    display: flex;
+  flex-direction: row;
+  gap: 10px;
+  width:495px;
+  border-radius: 50px;
+}
+.gallery2{
+    display: flex;
+  flex-direction: row;
+  gap: 10px;
+  width:495px;
+}

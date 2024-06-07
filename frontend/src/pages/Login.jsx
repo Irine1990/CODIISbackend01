@@ -39,11 +39,15 @@ const Login = () => {
       });
 
       const result = await res.json();
+      console.log(result)
       if (!res.ok) alert(result.message);
 
+      localStorage.setItem("user", result.data.username);
+      localStorage.setItem("role", result.role);
       localStorage.setItem("token", result.token);
+      localStorage.clear();
 
-      dispatch({ type: "LOGIN_SUCCESS", payload: result.data });
+      dispatch({ type: "LOGIN_SUCCESS", payload: result });
       navigate("/");
     } catch (err) {
       dispatch({ type: "LOGIN_FAILURE", payload: err.message });

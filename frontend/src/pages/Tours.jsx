@@ -1,17 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
 
 import CommonSection from "./../shared/CommonSection";
 import { Container, Row, Col } from "reactstrap";
 
-import { useLocation } from "react-router-dom";
+// import { useLocation } from "react-router-dom";
 import TourCard from "./../shared/TourCard";
 
 import Newsletter from "./../shared/Newsletter";
+import useFetch from "../hooks/useFetch";
+import { BASE_URL } from "../utils/config";
 
 const SearchResultList = () => {
-  const location = useLocation();
+  // const loc = useLocation();
 
-  const [data] = useState(location.state);
+  // const [data] = useState(loc.state);
+  // console.log(loc)
+const { data, loading, error } = useFetch(`${BASE_URL}/tours/getAllTours`);
 
   return (
     <>

@@ -16,6 +16,9 @@ const router = express.Router();
 // create new tour
 router.post("/", adminAuth, createTour);
 
+// get all tours
+router.get("/getAllTours", getAllTour);
+
 // update  tour
 router.put("/:id", adminAuth, updateTour);
 
@@ -25,8 +28,7 @@ router.delete("/:id", adminAuth, deleteTour);
 // get single tour
 router.get("/:id", getSingleTour);
 
-// get all tours
-router.get("/", getAllTour);
+
 
 // get tour by search
 router.get("/search/getTourBySearch", getTourBySearch);
